@@ -78,9 +78,15 @@ class FaceDetect(object):
                 rects = detect(gray, self.profileCascade)
                 vis = cv2.flip(vis, 1)
 
+        result = []
         #画矩形
         draw_rects(vis, rects, (0, 255, 0))
-        return vis
+        if len(rects) != 0:
+            for x1, y1, x2, y2 in rects:
+                result.append(vis[y1:y2, x1:x2])
+        else:
+            result.append(vis)
+        return result
 
 if __name__ == '__main__':
     img = cv2.imread("face/1.jpg")
