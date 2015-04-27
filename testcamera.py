@@ -14,6 +14,7 @@ num = 0
 while True:
     ret, img = capture.read()
     img = model.detect(img)
+
     video.write(img)
     cv2.imshow('Video', img)
     key = cv2.waitKey(1)
