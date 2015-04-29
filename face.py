@@ -93,6 +93,6 @@ if __name__ == '__main__':
     model = FaceDetect()
     vis = model.detect(img)
 
-    cv2.imshow('facedetect', vis)
+    cv2.imshow('facedetect', vis[0])
     cv2.waitKey(0)
     cv2.destroyAllWindows()
